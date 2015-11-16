@@ -1,0 +1,100 @@
+Poketty es un simulador de batallas pokemon en modo consola para GNU/Linux.
+Esta licenciado bajo GPL y es totalmente libre, poketty usa la librería fcl.h
+para leer los archivos .pkm que contienen información de cada pokemon,
+(librería que es también libre bajo GPL y creada por el autor de este software)
+de esa forma puedes crear tus propios pokemons personalizados para combatir,
+el programa al arrancar te pedirá el nombre de los pkm a cargar.
+
+Esta es la versión 1.3, que incluye los siguientes cambios:
+
+- Añadido soporte de estados inducidos por ataques enemigos.
+- Añadido un .pkm nuevo y reestructuración de los antiguos.
+
+IMPORTANTE: Los .pkm anteriores a esta versión no son compatibles, para hacerlos compatibles solo hay que añadir los campos "ataque1_estado", "ataque2_estado", "ataque3_estado", "ataque4_estado", estos corresponden a los nombres de estados que pueden inducir dichos ataques (puedes ponerle el nombre que quieras "paralizado", "congelado" o lo que quieras), además hay que añadir también el campo "antidotos", que dice cuantos antídotos tiene cada pokemon (todo esto respecto a los .pkm de poketty 1.2).
+
+Para compilar y ejecutar el programa, ir a la carpeta descomprimida y compilarlo con:
+
+gcc poketty.c -o poketty
+
+Esto genera un ejecutable, para correrlo, primero darle permisos de ejecución con:
+
+chmod +x poketty
+
+Y ejecutarlo con:
+
+./poketty
+
+Para crear un pkm, crear un archivo de texto plano en la carpeta donde está el ejecutable 
+y la librería y rellenar los siguientes campos:
+
+#nombre del pokemon
+nombre=
+#vida del pokemon
+pv=
+#ataques del pokemon
+ataque1=
+ataque2=
+ataque3=
+ataque4=
+#estados que induce cada ataque
+ataque1_estado=
+ataque2_estado=
+ataque3_estado=
+ataque4_estado=
+#puntos de daño mínimo del pokemon, es decir, la fuerza mínima de los ataques, corresponden con los ataques anteriores en orden
+pd1_min=
+pd2_min=
+pd3_min=
+pd4_min=
+#puntos de daño máximo del pokemon, es decir, la fuerza máxima de los ataques, corresponden con los ataques anteriores en orden
+pd1_max=
+pd2_max=
+pd3_max=
+pd4_max=
+#puntos de poder del pokemon, es decir, las veces que puedes usar un ataque en la partida, corresponden 
+#a los ataques anteriores y a los pd anteriores
+pp1=
+pp2=
+pp3=
+pp4=
+#numero de pociones que tiene el pokemon
+pociones=
+#numero de antidotos que tiene el pokemon
+antidotos=
+
+Un ejemplo de archivo pkm valido es:
+
+nombre=abaddon
+pv=100
+ataque1=mirada terrible
+ataque2=golpe brutal
+ataque3=energía iónica
+ataque4=voluntad destructiva
+ataque1_estado=paralizado
+ataque2_estado=normal
+ataque3_estado=normal
+ataque4_estado=normal
+pd1_min=25
+pd2_min=40
+pd3_min=50
+pd4_min=65
+pd1_max=35
+pd2_max=45
+pd3_max=55
+pd4_max=70
+pp1=50
+pp2=10
+pp3=2
+pp4=1
+pociones=4
+antidotos=2
+
+En los archivos pkm, poniendo "#" al empezar una linea permite escribir comentarios, estos serán ignorados por el programa.
+
+COLABORACIONES
+
+El desarrollador principal de este juego, como la licencia lo indica, es Francisco Domínguez Lerma, pero en esta release (poketty 1.3) también ha colaborado una persona con el nick "abaddon", ha contribuido aportando un .pkm que viene en esta release (aunque he tenido que adaptarlo a poketty 1.3).
+
+Espero que disfrutes del juego, tanto jugándolo como leyendo su código fuente y aprendiendo mucho de él.
+
+
